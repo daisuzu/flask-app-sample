@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ TITLE }}{% endblock %}
+{% block content %}
+
+<form method="POST" action="{{ url_for('index') }}">
+    {{ FORM.text.label }} {{ FORM.text }}
+</form>
+<br/>
+
+{% if MUTTERS %}
+    <table class="mutter">
+        {% for mutter in MUTTERS %}
+            <tr>
+                <td>{{ mutter.timestamp }}</td>
+                <td>{{ mutter.text }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% endblock %}
